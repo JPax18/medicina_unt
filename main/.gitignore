@@ -1,0 +1,12 @@
+# Archivos temporales o del sistema
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Archivos zip o carpetas innecesarias
+imgtoxyz/
+imgtoxyz.zip
+
+# Copias de seguridad de OneDrive
+~$*
+*.tmp

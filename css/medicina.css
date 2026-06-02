@@ -1,0 +1,503 @@
+/* ==========================================================================
+   VARIABLES CORPORATIVAS (MANUAL DE IDENTIDAD UNT)
+   ========================================================================== */
+:root {
+    --primary-color: #12377B;       /* Azul Institucional Oficial */
+    --accent-color: #E6AD09;        /* Oro Corporativo UNT */
+    --bg-main: #F4F6F9;             /* Fondo gris claro limpio */
+    --bg-card: #FFFFFF;             /* Blanco puro para tarjetas */
+    --text-dark: #1D2939;           /* Gris ultra oscuro para títulos */
+    --text-body: #475467;           /* Gris balanceado para lectura */
+    --text-muted: #667085;          /* Gris atenuado para fechas/subtítulos */
+    
+    --sidebar-width: 260px;
+    --sidebar-collapsed: 75px;
+    --transition-speed: 0.3s;
+}
+
+/* ==========================================================================
+   RESET GENERAL Y COMPORTAMIENTO BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-body);
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   MENÚ LATERAL (SIDEBAR) - LOGO CENTRADO Y TEXTO ABAJO
+   ========================================================================== */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    transition: width var(--transition-speed) ease;
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;   /* Alinea los elementos verticalmente (uno abajo del otro) */
+    align-items: center;      /* Centra horizontalmente el logo y el texto */
+    justify-content: center;
+    padding: 24px 16px;       /* Añade un colchón estético interno */
+    gap: 10px;                /* Separación controlada entre el logo y el texto */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: auto;             /* Permite que crezca según el tamaño del nuevo logo */
+}
+
+.logo-unt {
+    width: 75px;              /* Logo más grande y jerárquico */
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: width var(--transition-speed) ease; /* Transición suave al colapsar */
+}
+
+.brand-name {
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-align: center;       /* Asegura el centrado del texto de la marca */
+    letter-spacing: 0.3px;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 12px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: all var(--transition-speed) ease;
+    white-space: nowrap;
+}
+
+.sidebar-nav a .icon {
+    font-size: 1.25rem;
+    margin-right: 14px;
+    display: inline-block;
+    text-align: center;
+    width: 24px;
+    flex-shrink: 0;
+}
+
+.sidebar-nav a:hover, 
+.sidebar-nav a.active {
+    background-color: var(--accent-color);
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+/* Ajustes adaptativos cuando la barra se contrae con JS */
+.sidebar.collapsed { width: var(--sidebar-collapsed); }
+.sidebar.collapsed .sidebar-header { padding: 15px 10px; gap: 0; }
+.sidebar.collapsed .sidebar-header .logo-unt { width: 42px; } /* El logo se encoge proporcionalmente */
+.sidebar.collapsed .brand-name,
+.sidebar.collapsed .sidebar-nav .text { display: none; }
+.sidebar.collapsed .sidebar-nav a .icon { margin-right: 0; }
+.sidebar.collapsed .sidebar-nav a { justify-content: center; padding: 12px 0; }
+
+/* ==========================================================================
+   ESTRUCTURA DE CONTENIDO PRINCIPAL
+   ========================================================================== */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left var(--transition-speed) ease;
+}
+
+.main-content.expanded {
+    margin-left: var(--sidebar-collapsed);
+}
+
+.top-bar {
+    background-color: #FFFFFF;
+    height: 70px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #E4E7EC;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.toggle-btn:hover { background-color: #F2F4F7; }
+.top-bar-title { font-size: 1.1rem; font-weight: 600; color: var(--text-dark); }
+
+.container {
+    padding: 40px;
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS DE LA PÁGINA DE INICIO (INDEX.HTML)
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 20px rgba(18, 55, 123, 0.08);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(18, 55, 123, 0.95) 40%, rgba(18, 55, 123, 0.4));
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 50px;
+    color: #FFFFFF;
+}
+
+.hero-overlay h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #FFFFFF !important;
+}
+
+.hero-overlay p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.welcome-section {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 40px;
+    border: 1px solid #E4E7EC;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.welcome-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.welcome-text h2 {
+    font-size: 1.9rem;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.welcome-text p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-body);
+    margin-bottom: 26px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #FFFFFF !important;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(18, 55, 123, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #0b2554;
+    transform: translateY(-2px);
+}
+
+.welcome-img-wrapper {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+}
+
+.side-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   ESTILOS DE CUADRÍCULAS GENERALES (2 COLUMNAS PARA PÁGINAS INTERNAS)
+   ========================================================================== */
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 14px;
+    padding: 28px;
+    border: 1px solid #E4E7EC;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-body);
+}
+
+.card p small {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   OPTIMIZACIÓN: PLANA DOCENTE (FOTOS CONTROLADAS SIMÉTRICAS)
+   ========================================================================= */
+.docentes-container, 
+#docentes-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px;
+}
+
+#docentes-container .card {
+    text-align: center;
+    align-items: center;
+    padding: 30px 24px;
+}
+
+.docente-img-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 16px auto;
+    border: 3px solid #F2F4F7;
+    background-color: #EAECF0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+}
+
+.docente-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.docente-especialidad {
+    font-size: 0.9rem !important;
+    color: var(--primary-color) !important;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+
+.docente-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   OPTIMIZACIÓN: LISTAS DE PERFILES (NOSOTROS)
+   ========================================================================== */
+.profile-list {
+    list-style: none;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-list li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 22px;
+    color: var(--text-body);
+    text-align: left;
+}
+
+.profile-list li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    position: absolute;
+    left: 4px;
+    top: -2px;
+}
+
+/* ==========================================================================
+   OPTIMIZACIÓN: MALLA CURRICULAR (TABLAS)
+   ========================================================================== */
+.table-container {
+    background-color: var(--bg-card);
+    border-radius: 14px;
+    padding: 24px;
+    border: 1px solid #E4E7EC;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    overflow-x: auto;
+}
+
+.malla-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.malla-table th {
+    background-color: #F8F9FA;
+    color: var(--primary-color);
+    padding: 14px 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #EAECF0;
+}
+
+.malla-table td {
+    padding: 18px 16px;
+    border-bottom: 1px solid #F2F4F7;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-body);
+    vertical-align: top;
+}
+
+.malla-table tr:last-child td { border-bottom: none; }
+.malla-table td strong { color: var(--text-dark); }
+.malla-table td small { color: var(--text-muted); font-size: 0.85rem; }
+
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+.main-footer {
+    background-color: #FFFFFF;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #E4E7EC;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 992px) {
+    .data-grid, 
+    .welcome-grid, 
+    #docentes-container {
+        grid-template-columns: 1fr !important;
+        gap: 24px;
+    }
+    
+    .welcome-img-wrapper {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar { left: -var(--sidebar-width); }
+    .sidebar.active { left: 0; }
+    .main-content, .main-content.expanded { margin-left: 0; }
+    .container { padding: 24px; }
+    .hero-overlay { padding: 20px; }
+    .hero-overlay h1 { font-size: 1.8rem; }
+    .hero-section { height: 240px; }
+}

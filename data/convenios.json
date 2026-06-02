@@ -1,0 +1,51 @@
+[
+  {
+    "entidad": "Hospital Regional Docente de Trujillo — MINSA",
+    "tipo": "Convenio Específico",
+    "resolucion": "RCU N° 161-2024",
+    "alcance": "Nacional",
+    "estado": "Vigente"
+  },
+  {
+    "entidad": "Instituto Regional de Oftalmología — IRO",
+    "tipo": "Convenio Específico",
+    "resolucion": "RCU N° 463-2024",
+    "alcance": "Nacional",
+    "estado": "Vigente"
+  },
+  {
+    "entidad": "Red de Salud de Trujillo — MINSA",
+    "tipo": "Convenio Específico",
+    "resolucion": "RCU N° 160-2024",
+    "alcance": "Nacional",
+    "estado": "Vigente"
+  },
+  {
+    "entidad": "Red Prestacional Rebagliati — ESSALUD Lima",
+    "tipo": "Convenio Específico",
+    "resolucion": "RCU N° 176-2023",
+    "alcance": "Nacional",
+    "estado": "Vigente"
+  },
+  {
+    "entidad": "Red Prestacional Almenara — ESSALUD Lima",
+    "tipo": "Convenio Específico",
+    "resolucion": "RCU N° 219-2023",
+    "alcance": "Nacional",
+    "estado": "Vigente"
+  },
+  {
+    "entidad": "Sea Mar Community Health Centers",
+    "tipo": "Convenio Internacional",
+    "resolucion": "RCU N° 051-2024",
+    "alcance": "EE.UU.",
+    "estado": "Vigente"
+  },
+  {
+    "entidad": "Universidad Iberoamericana — UNIBE",
+    "tipo": "Memorando de Acuerdo",
+    "resolucion": "RCU N° 189-2022",
+    "alcance": "Costa Rica",
+    "estado": "Vigente"
+  }
+]

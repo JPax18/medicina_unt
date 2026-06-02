@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convenios - Medicina UNT</title>
+    <link rel="stylesheet" href="../css/medicina.css">
+</head>
+<body>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <img src="../assets/Universidad_Nacional_de_Trujillo.png" alt="Logo UNT" class="logo-unt">
+            <span class="brand-name">Medicina UNT</span>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><span class="icon">🏠</span><span class="text">Inicio</span></a></li>
+                <li><a href="nosotros.html"><span class="icon">🏛️</span><span class="text">Nosotros</span></a></li>
+                <li><a href="malla.html"><span class="icon">📚</span><span class="text">Malla Curricular</span></a></li>
+                <li><a href="noticias.html"><span class="icon">📰</span><span class="text">Noticias</span></a></li>
+                <li><a href="docentes.html"><span class="icon">👨‍🏫</span><span class="text">Docentes</span></a></li>
+                <li><a href="convenios.html" class="active"><span class="icon">🤝</span><span class="text">Convenios</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div id="main-content" class="main-content">
+        <header class="top-bar">
+            <button id="toggle-btn" class="toggle-btn">&#9776;</button>
+            <span class="top-bar-title">Relaciones Interinstitucionales</span>
+        </header>
+
+        <main class="container">
+            <h2 class="section-title">Convenios Institucionales</h2>
+            <p class="section-subtitle">Cooperación nacional e internacional para el desarrollo académico y la práctica clínica de nuestros estudiantes.</p>
+            
+            <div id="convenios-container" class="data-grid"></div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2026 Universidad Nacional de Trujillo - Facultad de Medicina.</p>
+        </footer>
+    </div>
+
+    <script>
+        fetch('../data/convenios.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('convenios-container');
+                data.forEach(convenio => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <h3>🤝 ${convenio.institucion || convenio.nombre || 'Convenio'}</h3>
+                        <p style="margin-bottom: 8px;"><strong>Tipo:</strong> ${convenio.tipo || 'General'}</p>
+                        <p>${convenio.detalles || convenio.descripcion || ''}</p>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error cargando los convenios:', error));
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleBtn = document.getElementById("toggle-btn");
+            const sidebar = document.getElementById("sidebar");
+            const mainContent = document.getElementById("main-content");
+            if (sessionStorage.getItem("sidebar-collapsed") === "true") {
+                sidebar.classList.add("collapsed");
+                mainContent.classList.add("expanded");
+            }
+            toggleBtn.addEventListener("click", () => {
+                if (window.innerWidth > 768) {
+                    sidebar.classList.toggle("collapsed");
+                    mainContent.classList.toggle("expanded");
+                    sessionStorage.setItem("sidebar-collapsed", sidebar.classList.contains("collapsed"));
+                } else {
+                    sidebar.classList.toggle("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identidad Institucional - Medicina UNT</title>
+    <link rel="stylesheet" href="../css/medicina.css">
+</head>
+<body>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <img src="../assets/Universidad_Nacional_de_Trujillo.png" alt="Logo UNT" class="logo-unt">
+            <span class="brand-name">Medicina UNT</span>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><span class="icon">🏠</span><span class="text">Inicio</span></a></li>
+                <li><a href="nosotros.html" class="active"><span class="icon">🏛️</span><span class="text">Nosotros</span></a></li>
+                <li><a href="malla.html"><span class="icon">📚</span><span class="text">Malla Curricular</span></a></li>
+                <li><a href="noticias.html"><span class="icon">📰</span><span class="text">Noticias</span></a></li>
+                <li><a href="docentes.html"><span class="icon">👨‍🏫</span><span class="text">Docentes</span></a></li>
+                <li><a href="convenios.html"><span class="icon">🤝</span><span class="text">Convenios</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div id="main-content" class="main-content">
+        <header class="top-bar">
+            <button id="toggle-btn" class="toggle-btn">&#9776;</button>
+            <span class="top-bar-title">Nuestra Identidad</span>
+        </header>
+
+        <main class="container">
+            <h2 class="section-title">Identidad e Institucionalidad</h2>
+            <p class="section-subtitle">Fundamentos teóricos y normativos de la Escuela Profesional de Medicina Humana - UNT.</p>
+
+            <div class="data-grid">
+                <div class="card">
+                    <h3>🏛️ Misión Institucional</h3>
+                    <p>Formar Médicos Cirujanos líderes, con sólida base científica, tecnológica, humanística y ética, capaces de resolver los problemas de salud de la población mediante la prevención, promoción, recuperación y rehabilitación, integrando la investigación científica y la proyección social para el desarrollo sostenible de la región y del país.</p>
+                </div>
+                <div class="card">
+                    <h3>👁️ Visión Institucional</h3>
+                    <p>Ser una Escuela Profesional acreditada internacionalmente, referente en el norte del país por su excelencia académica, rigurosidad en la investigación biomédica y clínica, y por el alto impacto social de sus egresados en los sistemas de salud pública y privada.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 50px;">Perfiles Académicos</h2>
+            <div class="data-grid">
+                <div class="card">
+                    <h3>🎯 Perfil de Ingreso</h3>
+                    <p>El postulante a la carrera de Medicina Humana de la UNT debe poseer:</p>
+                    <ul class="profile-list">
+                        <li>Sólidos conocimientos en ciencias básicas (Biología, Química, Física y Matemáticas).</li>
+                        <li>Capacidad analítica, pensamiento crítico y razonamiento lógico-verbal.</li>
+                        <li>Vocación definida de servicio, empatía y sensibilidad social.</li>
+                        <li>Equilibrio emocional, resiliencia y aptitud para el trabajo bajo presión y en equipo.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🎓 Perfil de Egreso</h3>
+                    <p>El Médico Cirujano egresado de la UNT es un profesional competente que:</p>
+                    <ul class="profile-list">
+                        <li>Diagnóstica, trata y previene patologías prevalentes aplicando el método clínico y la evidencia científica.</li>
+                        <li>Gestiona con liderazgo servicios y programas de salud pública eficaces.</li>
+                        <li>Desarrolla proyectos de investigación que responden a las prioridades sanitarias locales y nacionales.</li>
+                        <li>Ejerce bajo los principios éticos del Juramento Hipocrático y el Código Deontológico del Colegio Médico del Perú.</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2026 Universidad Nacional de Trujillo - Facultad de Medicina. Documento Oficial de Pregrado.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleBtn = document.getElementById("toggle-btn");
+            const sidebar = document.getElementById("sidebar");
+            const mainContent = document.getElementById("main-content");
+            if (sessionStorage.getItem("sidebar-collapsed") === "true") {
+                sidebar.classList.add("collapsed");
+                mainContent.classList.add("expanded");
+            }
+            toggleBtn.addEventListener("click", () => {
+                if (window.innerWidth > 768) {
+                    sidebar.classList.toggle("collapsed");
+                    mainContent.classList.toggle("expanded");
+                    sessionStorage.setItem("sidebar-collapsed", sidebar.classList.contains("collapsed"));
+                } else {
+                    sidebar.classList.toggle("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

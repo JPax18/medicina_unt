@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Estudios Oficial - Medicina UNT</title>
+    <link rel="stylesheet" href="../css/medicina.css">
+</head>
+<body>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <img src="../assets/Universidad_Nacional_de_Trujillo.png" alt="Logo UNT" class="logo-unt">
+            <span class="brand-name">Medicina UNT</span>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><span class="icon">🏠</span><span class="text">Inicio</span></a></li>
+                <li><a href="nosotros.html"><span class="icon">🏛️</span><span class="text">Nosotros</span></a></li>
+                <li><a href="malla.html" class="active"><span class="icon">📚</span><span class="text">Malla Curricular</span></a></li>
+                <li><a href="noticias.html"><span class="icon">📰</span><span class="text">Noticias</span></a></li>
+                <li><a href="docentes.html"><span class="icon">👨‍🏫</span><span class="text">Docentes</span></a></li>
+                <li><a href="convenios.html"><span class="icon">🤝</span><span class="text">Convenios</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div id="main-content" class="main-content">
+        <header class="top-bar">
+            <button id="toggle-btn" class="toggle-btn">&#9776;</button>
+            <span class="top-bar-title">Estructura Académica</span>
+        </header>
+
+        <main class="container">
+            <h2 class="section-title">Estructura Curricular y Plan de Estudios</h2>
+            <p class="section-subtitle">Plan de estudios vigente aprobado por el Consejo Universitario. Duración: 7 Años (14 Semestres Académicos).</p>
+
+            <div class="table-container">
+                <table class="malla-table">
+                    <thead>
+                        <tr>
+                            <th>Etapa Curricular</th>
+                            <th>Años / Ciclos</th>
+                            <th>Asignaturas Núcleo (Ejes Troncales)</th>
+                            <th>Sede / Modalidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ciencias Básicas</strong></td>
+                            <td>1° y 2° Año <br><small>(Ciclos I - IV)</small></td>
+                            <td>Anatomía Humana, Histología, Embriología, Bioquímica Médica, Fisiología Humana, Neurociencias.</td>
+                            <td>Campus Universitario (Aulas y Anfiteatro Anatómico)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preclínicas y Patología</strong></td>
+                            <td>3° Año <br><small>(Ciclos V - VI)</small></td>
+                            <td>Fisiopatología, Farmacología Médica, Microbiología y Parasitología, Semiología Clínica, Epidemiología.</td>
+                            <td>Campus Universitario y Laboratorios Integrados</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ciencias Clínicas</strong></td>
+                            <td>4°, 5° y 6° Año <br><small>(Ciclos VII - XII)</small></td>
+                            <td>Medicina Interna (Cardiología, Neumología, Nefrología, etc.), Cirugía General y Especialidades, Ginecología y Obstetricia, Pediatría, Psiquiatría.</td>
+                            <td>Hospitales de la Región (HRDT, HBT, EsSalud Lázarte / Albretch)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Internado Médico</strong></td>
+                            <td>7° Año <br><small>(Ciclos XIII - XIV)</small></td>
+                            <td>Rotación Mayor Hospitalaria y Comunitaria (Medicina, Cirugía, Ginecología, Pediatría). Práctica preprofesional a tiempo completo.</td>
+                            <td>Hospitales Nacionales Nivel III y Establecimientos de Redes de Salud</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2026 Universidad Nacional de Trujillo - Facultad de Medicina. Código del Plan: Med-2022.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleBtn = document.getElementById("toggle-btn");
+            const sidebar = document.getElementById("sidebar");
+            const mainContent = document.getElementById("main-content");
+            if (sessionStorage.getItem("sidebar-collapsed") === "true") {
+                sidebar.classList.add("collapsed");
+                mainContent.classList.add("expanded");
+            }
+            toggleBtn.addEventListener("click", () => {
+                if (window.innerWidth > 768) {
+                    sidebar.classList.toggle("collapsed");
+                    mainContent.classList.toggle("expanded");
+                    sessionStorage.setItem("sidebar-collapsed", sidebar.classList.contains("collapsed"));
+                } else {
+                    sidebar.classList.toggle("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

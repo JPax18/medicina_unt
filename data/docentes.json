@@ -1,0 +1,50 @@
+[
+  {
+    "nombre": "José Gustavo González Zavala",
+    "especialidad": "Morfología Humana · Anatomía",
+    "descripcion": "Decano · Dr.",
+    "foto": ""
+  },
+  {
+    "nombre": "Luis Edgardo Florián Zavaleta",
+    "especialidad": "Dirección Escuela de Medicina",
+    "descripcion": "Director Escuela · Dr.",
+    "foto": ""
+  },
+  {
+    "nombre": "Lourdes Armas Fava",
+    "especialidad": "Ciencias Básicas · Genética Médica",
+    "descripcion": "Dra.",
+    "foto": ""
+  },
+  {
+    "nombre": "José Jáuregui Sagástegui",
+    "especialidad": "Fisiología Humana · Neurofisiología",
+    "descripcion": "Dr.",
+    "foto": ""
+  },
+  {
+    "nombre": "Manuel Núñez Llanos",
+    "especialidad": "Medicina Interna",
+    "descripcion": "Dr.",
+    "foto": ""
+  },
+  {
+    "nombre": "Víctor Lau Torres",
+    "especialidad": "Cirugía · Cirugía General",
+    "descripcion": "Dr.",
+    "foto": ""
+  },
+  {
+    "nombre": "Ricardo Alarcón Gutiérrez",
+    "especialidad": "Ginecología y Obstetricia",
+    "descripcion": "Dr.",
+    "foto": ""
+  },
+  {
+    "nombre": "María Elena Luna Farro",
+    "especialidad": "Medicina Preventiva y Salud Pública",
+    "descripcion": "Dra.",
+    "foto": ""
+  }
+]
