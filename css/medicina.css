@@ -464,40 +464,55 @@ body {
 .malla-table td small { color: var(--text-muted); font-size: 0.85rem; }
 
 /* ==========================================================================
-   PIE DE PÁGINA (FOOTER)
+   OPTIMIZACIÓN RESPONSIVE AVANZADA
    ========================================================================== */
-.main-footer {
-    background-color: #FFFFFF;
-    padding: 20px 40px;
-    text-align: center;
-    border-top: 1px solid #E4E7EC;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: auto;
-}
 
-/* ==========================================================================
-   RESPONSIVE DESIGN
-   ========================================================================== */
-@media (max-width: 992px) {
-    .data-grid, 
-    .welcome-grid, 
-    #docentes-container {
-        grid-template-columns: 1fr !important;
-        gap: 24px;
-    }
-    
-    .welcome-img-wrapper {
-        height: 250px;
+@media (max-width: 1024px) {
+    /* Tablet: Ajustamos la cuadrícula para que no se vea tan estirada */
+    .welcome-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
 
 @media (max-width: 768px) {
-    .sidebar { left: -var(--sidebar-width); }
-    .sidebar.active { left: 0; }
-    .main-content, .main-content.expanded { margin-left: 0; }
-    .container { padding: 24px; }
-    .hero-overlay { padding: 20px; }
+    /* MÓVIL: Sidebar tipo 'Drawer' (Capa flotante) */
+    .sidebar {
+        left: calc(var(--sidebar-width) * -1); /* Escondido a la izquierda */
+        transition: left var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sidebar.active {
+        left: 0; /* Aparece al activar con JS */
+    }
+
+    /* El contenido principal ya no tiene margen izquierdo en móvil */
+    .main-content, 
+    .main-content.expanded {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    /* Ajuste de fuentes para pantallas pequeñas */
+    .section-title { font-size: 1.6rem; }
     .hero-overlay h1 { font-size: 1.8rem; }
-    .hero-section { height: 240px; }
+    .container { padding: 20px 16px; }
+
+    /* Ajuste de cuadrículas para que todo sea 1 columna */
+    .data-grid, 
+    #docentes-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Ajuste específico para pantallas muy pequeñas (celulares horizontales o muy angostos) */
+@media (max-width: 480px) {
+    .hero-section { height: 220px; }
+    .hero-overlay { padding: 20px; }
+    .top-bar { padding: 0 15px; }
+    
+    .malla-table th, .malla-table td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
 }
