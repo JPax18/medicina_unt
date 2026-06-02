@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facultad de Medicina - UNT</title>
-    <link rel="stylesheet" href="../css/medicina.css">
     <link rel="stylesheet" href="css/medicina.css">
 </head>
 <body>
@@ -16,7 +15,7 @@
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <li><a href="../index.html" class="active"><span class="icon">🏠</span><span class="text">Inicio</span></a></li>
+                <li><a href="index.html" class="active"><span class="icon">🏠</span><span class="text">Inicio</span></a></li>
                 <li><a href="main/nosotros.html"><span class="icon">🏛️</span><span class="text">Nosotros</span></a></li>
                 <li><a href="main/malla.html"><span class="icon">📚</span><span class="text">Malla Curricular</span></a></li>
                 <li><a href="main/noticias.html"><span class="icon">📰</span><span class="text">Noticias</span></a></li>
@@ -37,7 +36,7 @@
                 <h1>Facultad de Medicina</h1>
                 <p>Universidad Nacional de Trujillo - Excelencia Académica y Científica</p>
             </div>
-            <img src="../assets/fachada medicina.jpg" alt="Fachada Medicina UNT" class="hero-image">
+            <img src="assets/fachada medicina.jpg" alt="Fachada Medicina UNT" class="hero-image">
         </section>
 
         <main class="container">
@@ -46,40 +45,20 @@
                     <div class="welcome-text">
                         <h2>Bienvenidos a nuestra Facultad</h2>
                         <p>Formamos profesionales líderes en las ciencias de la salud, comprometidos con la investigación, la ética y el servicio a la comunidad liberteña y del país.</p>
-                        <a href="noticias.html" class="btn-primary">Ver Últimas Novedades</a>
+                        <a href="main/noticias.html" class="btn-primary">Ver Últimas Novedades</a>
                     </div>
                     <div class="welcome-img-wrapper">
-                        <img src="../assets/med..jpg" alt="Medicina UNT" class="side-image">
+                        <img src="assets/med..jpg" alt="Medicina UNT" class="side-image">
                     </div>
                 </div>
             </section>
         </main>
 
         <footer class="main-footer">
-            <p>&copy; 2026 Universidad Nacional de Trujillo - Facultad de Medicina. Todos los derechos reservados.</p>
+            <p>&copy; 2026 Universidad Nacional de Trujillo - Facultad de Medicina.</p>
         </footer>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggleBtn = document.getElementById("toggle-btn");
-            const sidebar = document.getElementById("sidebar");
-            const mainContent = document.getElementById("main-content");
-            if (sessionStorage.getItem("sidebar-collapsed") === "true") {
-                sidebar.classList.add("collapsed");
-                mainContent.classList.add("expanded");
-            }
-            toggleBtn.addEventListener("click", () => {
-                if (window.innerWidth > 768) {
-                    sidebar.classList.toggle("collapsed");
-                    mainContent.classList.toggle("expanded");
-                    sessionStorage.setItem("sidebar-collapsed", sidebar.classList.contains("collapsed"));
-                } else {
-                    sidebar.classList.toggle("active");
-                }
-            });
-        });
-    </script>
     <script src="main.js"></script>
 </body>
 </html>
